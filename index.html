@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Frontier Fare</title>
     
-    <!-- 🛑 THE CACHE KILLERS 🛑 -->
+    <!-- App Manifest & Icons -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <meta name="theme-color" content="#0f0f13">
+    
+    <!-- iOS Native App Settings (Hides the URL Bar!) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Frontier">
+
+    <!-- The Cache Killers -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <!-- The ?v=2 forces the phone to download the newest CSS -->
-    <link rel="stylesheet" href="styles.css?v=2">
+    <!-- Version 4 to guarantee a fresh pull -->
+    <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
 
@@ -43,7 +53,7 @@
         </div>
     </nav>
 
-    <!-- The ?v=2 forces the phone to download the newest JavaScript -->
-    <script src="script.js?v=2"></script>
+    <!-- Version 4 to guarantee a fresh pull -->
+    <script src="script.js?v=4"></script>
 </body>
 </html>
