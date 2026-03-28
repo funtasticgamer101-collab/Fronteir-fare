@@ -3,57 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Frontier Fare</title>
-    
-    <!-- App Manifest & Icons -->
+    <title>Meal Planner</title>
     <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="icon-192.png">
-    <meta name="theme-color" content="#0f0f13">
-    
-    <!-- iOS Native App Settings (Hides the URL Bar!) -->
+    <meta name="theme-color" content="#E65100">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Frontier">
-
-    <!-- The Cache Killers -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-
-    <!-- Version 4 to guarantee a fresh pull -->
-    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="apple-touch-icon" href="icon.svg">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header>
-        <div class="app-title">🏕️ Frontier Fare</div>
-        <div id="week-indicator" class="week-indicator"></div>
+        <h1>🍲 Comfort Meal Planner</h1>
+        <p class="serving-badge">Scaled for 1 Serving</p>
+        <nav>
+            <button id="tab-plan" class="active">Meal Plan</button>
+            <button id="tab-groceries">Grocery List</button>
+        </nav>
     </header>
 
     <main>
-        <!-- Planner Tab -->
-        <div id="planner-view" class="view-section active">
-            <div id="planner-container"></div>
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Curating your 1-serving comfort food menu...</p>
         </div>
 
-        <!-- Grocery Tab -->
-        <div id="grocery-view" class="view-section">
-            <div id="grocery-container"></div>
-        </div>
+        <!-- Meal Plan Section -->
+        <section id="view-plan" class="view active">
+            <div class="week-container">
+                <h2>Week 1</h2>
+                <div class="grid" id="week-1-grid"></div>
+            </div>
+            <div class="week-container">
+                <h2>Week 2</h2>
+                <div class="grid" id="week-2-grid"></div>
+            </div>
+        </section>
+
+        <!-- Grocery List Section -->
+        <section id="view-groceries" class="view">
+            <div class="grocery-container">
+                <h2>🛒 Consolidated Shopping List</h2>
+                <p class="subtitle">Everything you need for 1 person for 2 weeks.</p>
+                <ul id="grocery-list"></ul>
+            </div>
+        </section>
     </main>
 
-    <nav class="bottom-nav">
-        <div class="nav-item active" onclick="switchTab('planner', this)">
-            <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
-            Planner
+    <!-- Recipe Modal -->
+    <div id="recipe-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modal-title">Recipe Title</h2>
+            <img id="modal-img" src="" alt="Recipe Image">
+            <h3>Ingredients (1 Serving)</h3>
+            <ul id="modal-ingredients"></ul>
+            <h3>Instructions</h3>
+            <p id="modal-instructions"></p>
         </div>
-        <div class="nav-item" onclick="switchTab('grocery', this)">
-            <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-            Groceries
-        </div>
-    </nav>
+    </div>
 
-    <!-- Version 4 to guarantee a fresh pull -->
-    <script src="script.js?v=4"></script>
+    <script src="app.js"></script>
 </body>
 </html>
