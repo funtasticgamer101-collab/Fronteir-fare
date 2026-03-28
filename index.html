@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Meal Planner</title>
+    <title>American Comfort Meals</title>
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#E65100">
+    <meta name="theme-color" content="#D84315">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="icon.svg">
@@ -13,10 +13,13 @@
 </head>
 <body>
     <header>
-        <h1>🍲 Comfort Meal Planner</h1>
-        <p class="serving-badge">Scaled for 1 Serving</p>
+        <h1>🍔 Comfort Meals</h1>
+        <div class="header-badges">
+            <span class="serving-badge">Scaled for 1 Serving</span>
+            <button id="install-btn" class="install-btn" style="display: none;">📲 Install App</button>
+        </div>
         <nav>
-            <button id="tab-plan" class="active">Meal Plan</button>
+            <button id="tab-plan" class="active">7-Day Plan</button>
             <button id="tab-groceries">Grocery List</button>
         </nav>
     </header>
@@ -24,26 +27,23 @@
     <main>
         <div id="loading" class="loading">
             <div class="spinner"></div>
-            <p>Curating your 1-serving comfort food menu...</p>
+            <p>Cooking up your classic American menu...</p>
         </div>
 
         <!-- Meal Plan Section -->
         <section id="view-plan" class="view active">
             <div class="week-container">
-                <h2>Week 1</h2>
-                <div class="grid" id="week-1-grid"></div>
-            </div>
-            <div class="week-container">
-                <h2>Week 2</h2>
-                <div class="grid" id="week-2-grid"></div>
+                <h2>This Week's Menu</h2>
+                <p class="subtitle">Tap a meal to view the recipe, or tap 🔄 to swap it out.</p>
+                <div class="grid" id="week-grid"></div>
             </div>
         </section>
 
         <!-- Grocery List Section -->
         <section id="view-groceries" class="view">
             <div class="grocery-container">
-                <h2>🛒 Consolidated Shopping List</h2>
-                <p class="subtitle">Everything you need for 1 person for 2 weeks.</p>
+                <h2>🛒 Shopping List</h2>
+                <p class="subtitle">Everything you need for 1 person for 7 days.</p>
                 <ul id="grocery-list"></ul>
             </div>
         </section>
@@ -57,7 +57,7 @@
             <img id="modal-img" src="" alt="Recipe Image">
             <h3>Ingredients (1 Serving)</h3>
             <ul id="modal-ingredients"></ul>
-            <h3>Instructions</h3>
+            <h3>Detailed Instructions</h3>
             <p id="modal-instructions"></p>
         </div>
     </div>
