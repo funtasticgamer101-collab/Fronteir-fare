@@ -1,4 +1,4 @@
-const CACHE_NAME = 'meal-planner-v2';
+const CACHE_NAME = 'comfort-meals-v3';
 const ASSETS = [
     './',
     './index.html',
@@ -32,9 +32,7 @@ self.addEventListener('activate', event => {
 
 // Fetch Event: Network first, fallback to cache
 self.addEventListener('fetch', event => {
-    // Don't cache API calls to TheMealDB to ensure fresh recipes, 
-    // but cache the app shell (HTML, CSS, JS)
-    if (event.request.url.includes('themealdb.com')) {
+    if (event.request.url.includes('themealdb.com') || event.request.url.includes('unsplash.com')) {
         event.respondWith(fetch(event.request));
         return;
     }
