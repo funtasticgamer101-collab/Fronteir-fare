@@ -1,11 +1,11 @@
 {
-  "name": "Meal Planner",
+  "name": "Comfort Meals",
   "short_name": "Meals",
-  "description": "A 2-week comfort food meal planner and grocery list scaled for 1 person.",
+  "description": "A 7-day classic American comfort food meal planner and grocery list scaled for 1 person.",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#FFF8E1",
-  "theme_color": "#E65100",
+  "background_color": "#FBE9E7",
+  "theme_color": "#D84315",
   "icons": [
     {
       "src": "icon.svg",
